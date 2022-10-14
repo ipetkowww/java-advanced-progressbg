@@ -25,7 +25,7 @@ public class BookStore {
     public boolean buyBook(String isbnCode, int quantity) {
         int availabilityOfBook = getAvailabilityOfBook(isbnCode);
 
-        if (availabilityOfBook <= 0 || availabilityOfBook < quantity) {
+        if (availabilityOfBook <= 0) {
             return false;
         }
         Book book = this.storage.hasElement(isbnCode);
@@ -46,11 +46,9 @@ public class BookStore {
         this.storage.addBook(book);
     }
 
-    public List<Book> getAllBooks() {
-        return this.storage.getBooks();
-    }
-
-    public boolean isBookAvailable(Book book) {
-        return getAllBooks().stream().anyMatch(b -> b.getName().equals(book.getName()));
+    public void printAllBooks() {
+        for (Book book : this.storage.getBooks()) {
+            System.out.println(book);
+        }
     }
 }

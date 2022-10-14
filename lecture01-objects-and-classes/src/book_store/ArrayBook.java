@@ -15,7 +15,7 @@ public class ArrayBook {
         this.books.add(book);
     }
 
-    public Book getBook(int index) {
+    public Book get(int index) {
         return this.books.get(index);
     }
 
