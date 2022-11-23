@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Bootstrap Table</title>
+
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.1.2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div class="container">
+    <h1>Employee list</h1>
+    <div class="row">
+        <div class="col-lg-10 mt-5 mb-5">
+            <table id="example" class="table table-bordered" style="width: 100%">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Hire date</th>
+                    <th>Job id</th>
+                    <th>Salary</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="employee : ${allEmployees}">
+                    <td th:text="${employee.getId()}">Name</td>
+                    <td th:text="${employee.getFirstName()}">First name</td>
+                    <td th:text="${employee.getLastName()}">Last name</td>
+                    <td th:text="${employee.getEmail()}">Email</td>
+                    <td th:text="${employee.getHireDate()}">Hire date</td>
+                    <td th:text="${employee.getJobId()}">Job id</td>
+                    <td th:text="${employee.getSalary()}">Hire date</td>
+                    <td>
+                        <a th:href="@{/update/$" class="btn btn-primary">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
